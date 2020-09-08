@@ -2,6 +2,19 @@ import React from "react";
 import "./App.css";
 import ReactDOM from "react-dom";
 
+function App() {
+  const [theme, SetTheme] = React.useState("red");
+
+  const onClickHandler = () => {
+    SetTheme(theme === "red" ? "blue" : "red");
+  };
+  return (
+    <div className="app">
+      <Text theme={theme} />
+      <button onClick={onClickHandler}>Change Theme</button>
+    </div>
+  );
+}
 function Text({ theme }) {
   return (
     <h1
@@ -11,14 +24,6 @@ function Text({ theme }) {
     >
       {theme}
     </h1>
-  );
-}
-function App() {
-  return (
-    <div className="app">
-      <Text theme="blue" />
-      {/* <h1>{theme}</h1> */}
-    </div>
   );
 }
 
